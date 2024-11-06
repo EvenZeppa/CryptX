@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ezeppa <ezeppa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 21:09:50 by ezeppa            #+#    #+#             */
-/*   Updated: 2024/11/06 11:29:25 by ezeppa           ###   ########.fr       */
+/*   Created: 2024/11/05 10:27:10 by ezeppa            #+#    #+#             */
+/*   Updated: 2024/11/06 11:18:49 by ezeppa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+size_t	ft_strlen(const char *s)
 {
-	unsigned char	*ptr1;
-	unsigned char	*ptr2;
+	size_t	count;
 
-	ptr1 = (unsigned char *)s1;
-	ptr2 = (unsigned char *)s2;
-	while (n > 0)
+	count = 0;
+	while (*s)
 	{
-		if (*ptr1 != *ptr2)
-			return (*ptr1 - *ptr2);
-		ptr1++;
-		ptr2++;
-		n--;
+		count++;
+		s++;
 	}
-	return (0);
+	return (count);
 }
