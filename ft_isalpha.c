@@ -1,36 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ezeppa <ezeppa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 21:28:23 by ezeppa            #+#    #+#             */
-/*   Updated: 2024/11/06 12:49:12 by ezeppa           ###   ########.fr       */
+/*   Created: 2024/11/05 09:35:41 by ezeppa            #+#    #+#             */
+/*   Updated: 2024/11/05 10:25:02 by ezeppa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c);
-
-int	ft_atoi(const char *nptr)
+int	ft_isalpha(int c)
 {
-	int	nb;
-	int	sign;
-
-	nb = 0;
-	sign = 1;
-	while (*nptr == 32 || (*nptr >= 9 && *nptr <= 13))
-		nptr++;
-	if (*nptr == '+' || *nptr == '-')
-	{
-		if (*nptr == '-')
-			sign = -1;
-		nptr++;
-	}
-	while (ft_isdigit(*nptr))
-	{
-		nb = nb * 10 + (*nptr - '0');
-		nptr++;
-	}
-	return (sign * nb);
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		return (1);
+	return (0);
 }
