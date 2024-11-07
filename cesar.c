@@ -21,7 +21,8 @@ char	*ft_c_crypt(char *text, int gap)
 			else
 				while ((text[i] - 'A') + tmp_gap >= 26)
 					tmp_gap -= 26;
-			text[i] += tmp_gap;}
+			text[i] += tmp_gap;
+		}
 		i++;
 	}
 	return (text);
