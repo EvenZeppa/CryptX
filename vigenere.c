@@ -6,14 +6,13 @@
 /*   By: vincent <vincent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 15:29:55 by vincent           #+#    #+#             */
-/*   Updated: 2024/11/07 16:12:03 by vincent          ###   ########.fr       */
+/*   Updated: 2024/11/07 16:15:17 by vincent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_isdigit(int c);
-int	ft_isalpha(int c);
+int		ft_isalpha(int c);
 void	ft_putstr(char *text);
 size_t	ft_strlen(const char *s);
 
@@ -49,13 +48,7 @@ char*	ft_v_crypt(char *text, char *key, int crypt)
 	{
 		if (j == key_size)
 			j = 0;
-		if (ft_isdigit(text[i]))
-		{
-			gap = key[j] - 'a';
-			text[i] += (crypt * gap);
-			j++;
-		}
-		else if (ft_isalpha(text[i]))
+		if (ft_isalpha(text[i]))
 		{
 			if (text[i] >= 'A' && text[i] <= 'Z')
 			{
