@@ -17,14 +17,23 @@ char *keycase(char *key)
 	return (key);
 }
 
+int	pos_char(char c)
+{
+	int	pos;
+
+	pos = 0;
+	if (ft_isalpha(ft_tolower(c)))
+		pos = ft_tolower(c) - 'a' + 1;
+	return (pos);
+}
+
 char*	ft_v_crypt(char *text, char *key, int crypt)
 {
-	int i;
+	int	i;
 	int	j;
 	int	key_size;
-	int	gap;
+	int	tmp_gap;
 
-	gap = 0;
 	i = 0;
 	j = 0;
 	key_size = ft_strlen(key);
@@ -34,19 +43,17 @@ char*	ft_v_crypt(char *text, char *key, int crypt)
 			j = 0;
 		if (ft_isalpha(text[i]))
 		{
-			if (text[i] >= 'A' && text[i] <= 'Z')
+			if (ft_isalpha(key[j]))
 			{
-				gap = key[j] - 'a' + 1;
-				text[i] += (crypt * gap);
-				j++;
-			}
-			else
-			{
-				gap = key[j] - 'a' + 1;
-				text[i] += (crypt * gap);
-				j++;
+				tmp_gap = pos_char(key[j]) * crypt;
+				if (pos_char(text[i]) + tmp_gap < 1)
+					text[i] += 26;
+				if (pos_char(text[i]) + tmp_gap > 26)
+					text[i] -= 26;
+				text[i] += tmp_gap;
 			}
 		}
+		j++;
 		i++;
 	}
 	return (text);

@@ -12,5 +12,6 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	ft_putstr(char *text);
 size_t	ft_strlen(const char *s);
+int		ft_tolower(int c);
 
 #endif
