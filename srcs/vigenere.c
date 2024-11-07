@@ -1,20 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   vigenere.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: vincent <vincent@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 15:29:55 by vincent           #+#    #+#             */
-/*   Updated: 2024/11/07 16:15:17 by vincent          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include <unistd.h>
-
-int		ft_isalpha(int c);
-void	ft_putstr(char *text);
-size_t	ft_strlen(const char *s);
+#include "../includes/utils.h"
 
 char *keycase(char *key)
 {

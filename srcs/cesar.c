@@ -1,8 +1,4 @@
-#include <unistd.h>
-
-size_t	ft_strlen(const char *s);
-void	ft_putstr(char *text);
-int		ft_isalpha(int c);
+#include "../includes/utils.h"
 
 char	*ft_c_crypt(char *text, int gap)
 {
