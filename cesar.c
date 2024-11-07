@@ -26,35 +26,12 @@ char	*ft_c_crypt(char *text, int gap)
 	}
 	return (text);
 }
-char *ft_c_decrypt(char *text)
+
+void	cesar(char *text, int gap, int is_crypt)
 {
 	int	i;
 
-	i = 0;
-	while(text[i])
-	{
-		if (text[i] <= '9' && text[i] >= '0' && (text[i] - 1) >= '0')
-			text[i] -= 1;
-		else if (text[i] <= '9' && text[i] >= '0' && (text[i] - 1) < '0')
-			text[i] += 9;
-		else if (text[i] >= 'A' && text[i] <= 'Z' && (text[i] - 1) >= 'A')
-			text[i] -= 1;
-		else if (text[i] >= 'A' && text[i] <= 'Z' && (text[i] - 1) < 'A')
-			text[i] += 25;
-		else if (text[i] >= 'a' && text[i] <= 'z' && (text[i] - 1) >= 'a')
-			text[i] -= 1;
-		else if (text[i] >= 'a' && text[i] <= 'z' && (text[i] - 1) < 'a')
-			text[i] += 25;
-		i++;
-	}
-	return (text);
-}
-
-void	cesar(char *text, int gap)
-{
-	int	i;
-
-	if (gap)
+	if (!is_crypt)
 	{
 		write(1, "Cryptage en code Cesar : \n", 26);
 		ft_putstr(ft_c_crypt(text, gap));
@@ -66,7 +43,7 @@ void	cesar(char *text, int gap)
 		write(1, "Decryptage en code Cesar : \n", 28);
 		while (i < 26)
 		{
-			ft_putstr(ft_c_decrypt(text));
+			ft_putstr(ft_c_crypt(text, 1));
 			write(1, "\n\n", 2);
 			i++;
 		}

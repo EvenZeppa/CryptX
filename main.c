@@ -8,8 +8,8 @@ size_t	ft_strlen(const char *s);
 int		ft_atoi(const char *nptr);
 void	ft_putstr(char *text);
 
-void	cesar(char *text, int gap);
-void	vigenere(char *text, char *key);
+void	cesar(char *text, int gap, int is_crypt);
+void	vigenere(char *text, char *key, int is_crypt);
 
 #include <stdio.h>
 
@@ -21,10 +21,12 @@ int	main(int argc, char *argv[])
 	int		is_vigenere;
 	int		is_cesar;
 	int		i;
+	int		is_crypt;
 
 	gap = 0;
 	is_vigenere = 0;
 	is_cesar = 0;
+	is_crypt = 0;
 	i = 1;
 	while (i < argc)
 	{
@@ -46,15 +48,19 @@ int	main(int argc, char *argv[])
 		{
 			gap = ft_atoi(&argv[i][2]);
 		}
-		if (ft_memcmp(argv[i], "-c", 2) == 0)
+		if (ft_memcmp(argv[i], "-C", 2) == 0)
 			is_cesar = 1;
-		if (ft_memcmp(argv[i], "-v", 2) == 0)
+		if (ft_memcmp(argv[i], "-V", 2) == 0)
 			is_vigenere = 1;
+		if (ft_memcmp(argv[i], "-c", 2) == 0)
+			is_crypt = 0;
+		if (ft_memcmp(argv[i], "-d", 2) == 0)
+			is_crypt = 1;
 		i++;
 	}
 	if (is_cesar)
-		cesar(text, gap);
+		cesar(text, gap, is_crypt);
 	if (is_vigenere)
-		//vigenere(text, key);
+		vigenere(text, key, is_crypt);
 	return (0);
 }
