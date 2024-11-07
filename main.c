@@ -55,6 +55,6 @@ int	main(int argc, char *argv[])
 	if (is_cesar)
 		cesar(text, gap);
 	if (is_vigenere)
-		vigenere(text, key);
+		//vigenere(text, key);
 	return (0);
 }
